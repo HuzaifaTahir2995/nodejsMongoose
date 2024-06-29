@@ -18,12 +18,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use((req, res, next) => {
-  // User.findById("667d02e83480557b1263cbbf")
-  //   .then((user) => {
-  //     req.user = new User(user.name, user.email, user.cart, user._id);
-  //     next();
-  //   })
-  //   .catch((err) => console.log(err));
+  User.findById("667f6f5c3a852d67d75cb2a5")
+    .then((user) => {
+      req.user = new User(user.name, user.email, user.cart, user._id);
+      next();
+    })
+    .catch((err) => console.log(err));
   next()
 });
 
@@ -34,8 +34,8 @@ app.use(errorController.get404);
 
   // const user = new User("roger", "roger@test.com", { items: [] });
   // user.save();
-mongoose
-  .connect('mongodb+srv://rain77:pyTau8nOTHya4u2E@cluster0.km8ou3n.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0')
+  mongoose
+  .connect('mongodb+srv://Huzaifa:60o2mtAT49P040io@cluster0.7ynpr2v.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
   .then(result => {
     app.listen(3000);
   })
